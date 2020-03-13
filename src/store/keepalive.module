@@ -1,0 +1,19 @@
+const state = function() {
+  let keepalive = [];
+
+  return {
+    keepalive
+  }
+};
+
+const mutations = {
+  SET_KEEP_ALIVE: (state, keepalive) => {
+    state.keepalive = keepalive
+  }
+};
+
+export const keepalive = {
+  namespaced: true,
+  state,
+  mutations
+};

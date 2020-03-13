@@ -1,0 +1,86 @@
+$primary-color: #508CFF;
+$contrast-color: #F05A82;
+$secondary-color-1: #3C4664;
+$secondary-color-2: #7D96B4;
+$secondary-color-3: #E6FAFF;
+$secondary-color-4: #EBF5FF;
+$secondary-color-5: #F6F8FA;
+
+$font-xxl: 20px;
+$font-xl: 18px;
+$font-l: 16px;
+$font-m: 14px;
+$font-s: 12px;
+
+$nav-header-height: 70px;
+
+@mixin highContrastButton($width: 100px, $fontSize: $font-m) {
+	width: $width;
+	height: 34px;
+	border: 1px solid $primary-color;
+	border-radius: 24px;
+	background-color: $secondary-color-3;
+	font-size: $fontSize;
+	color: $primary-color;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin darkButton($width: 150px, $fontSize: $font-l) {
+	width: $width;
+	height: 40px;
+	border-radius: 24px;
+	border: none;
+	box-shadow: 0 3px 5px 0 rgba(80, 140, 255, 0.3);
+	background-color: $primary-color;
+	font-size: $fontSize;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin lightButton($width: 150px, $fontSize: $font-l) {
+	width: $width;
+	height: 40px;
+	border-radius: 24px;
+	border: 1px solid $primary-color;
+	background-color: white;
+	font-size: $fontSize;
+	color: $primary-color;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin searchBox($width: 220px, $backgroundColor: white) {
+	width: $width;
+	height: 34px;
+	border-radius: 24px;
+	border: 1px solid $secondary-color-2;
+	background-color: $backgroundColor;
+	box-sizing: border-box;
+	padding: 7px 20px;
+}
+
+.clickable{
+  cursor: pointer;
+}
+
+.hide{
+  visibility: hidden;
+}
+
+input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+}
+.lightButton {
+  @include lightButton(120px);
+  margin-right: 20px;
+}
+
+.darkButton {
+  @include darkButton(120px);
+}

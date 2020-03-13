@@ -1,0 +1,57 @@
+import { getAccount } from '../services/user.service';
+
+const state = function() {
+  let account = JSON.parse(getAccount());
+  let editMode = false;
+  
+  if( account && account.company_user && (account.company_user === true) ) {
+    editMode = true;
+  }
+
+  return {
+    account,
+    editMode,
+  }
+};
+
+const actions = {
+  update({ commit }, account) {
+    commit({
+      type: 'update', 
+      account
+    });
+  },
+
+  switchToEditMode({ commit }) {
+    commit({
+      type: 'switchToEditMode',
+    });
+  },
+
+  switchToUseMode({ commit }) {
+    commit({
+      type: 'switchToUseMode',
+    });
+  },
+};
+
+const mutations = {
+  update(state, payload) {
+    state.account = payload.account;
+  },
+
+  switchToEditMode(state) {
+    state.editMode = true;
+  },
+
+  switchToUseMode(state) {
+    state.editMode = false;
+  }
+};
+
+export const account = {
+  namespaced: true,
+  state,
+  actions,
+  mutations
+};

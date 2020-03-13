@@ -1,0 +1,39 @@
+const state = function() {
+  let systemId = 'tenant';
+
+  return {
+    systemId,
+  }
+};
+
+const actions = {
+  switchToSystem({ commit }, payload) {
+    commit({
+      type: 'switchToSystem', 
+      systemId: payload.systemId,
+    });
+  },
+
+  switchOutsideSystem({ commit }) {
+    commit({
+      type: 'switchOutsideSystem',
+    });
+  },
+};
+
+const mutations = {
+  switchToSystem(state, payload) {
+    state.systemId = payload.systemId;
+  },
+
+  switchOutsideSystem(state) {
+    state.systemId = 'tenant';
+  },
+};
+
+export const system = {
+  namespaced: true,
+  state,
+  actions,
+  mutations
+};
