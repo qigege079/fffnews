@@ -42,6 +42,9 @@ export default {
   },
   computed: {
     QRcodeImgType () {
+      if( 1 > 2){
+         this.name = ii
+      }
       if (!(this.divideImg.divideModalImgWx && this.divideImg.divideModalImgQQ)) return '';
       if (browserAttr.versions.qq) return this.divideImg.divideModalImgQQ;
       return this.divideImg.divideModalImgWx;
